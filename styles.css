@@ -1,0 +1,27 @@
+header h1{
+    font-size: 2rem;
+    color: orange;
+
+}
+header p {
+  font-size: 1.7rem;
+  color:orange;
+  background-color: black;
+  border-radius:0.5rem;
+  margin-right: 0;
+  padding:0.5rem;
+}
+.search-box{
+    border-radius: 0.5rem;
+    color:plum;
+    display:flex;
+    align-items: center;
+}
+#search{
+    border-radius: 0.5rem;
+    padding:0.5rem;
+    cursor: pointer;
+}
+#search-button{
+ color: orange;
+}
