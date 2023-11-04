@@ -1,6 +1,7 @@
 header h1{
     font-size: 2rem;
-    color: orange;
+    color: rgb(255, 81, 0);
+    
 
 }
 header p {
@@ -10,6 +11,12 @@ header p {
   border-radius:0.5rem;
   margin-right: 0;
   padding:0.5rem;
+}
+section{
+    
+}
+section h2{
+
 }
 .search-box{
     border-radius: 0.5rem;
@@ -24,4 +31,16 @@ header p {
 }
 #search-button{
  color: orange;
+ width:100%;
+}
+.recipe-button{
+
+}
+.meal{
+
+}
+.meal.img h2{
+    color: orange;
+    padding: 0.5rem;
+
 }
