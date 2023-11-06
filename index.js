@@ -71,9 +71,10 @@ function getMealList(){
     }
 })
 function getRecipe(mealId) {
-    fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`)
+    fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
         .then(response => response.json())
         .then(data => {
+            console.log(data);
             if (data.meals && data.meals.length > 0) {
                 const meal = data.meals[0];
                 const recipe = meal.strInstructions;

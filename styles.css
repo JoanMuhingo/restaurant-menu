@@ -1,28 +1,28 @@
+body{
+    background-color: rgb(207, 204, 204);
+
+}
 header h1{
     font-size: 2rem;
-    color: rgb(255, 81, 0);
+    color: #002855;
     
 
 }
 header p {
   font-size: 1.7rem;
-  color:orange;
-  background-color: black;
+  color:#FFC5A1;
+  background-color: #002855;
   border-radius:0.5rem;
-  margin-right: 0;
+  margin:0.7rem;
   padding:0.5rem;
-}
-section{
-    
-}
-section h2{
-
+  text-align: center;
 }
 .search-box{
     border-radius: 0.5rem;
     color:plum;
     display:flex;
     align-items: center;
+    justify-content: center;
 }
 #search{
     border-radius: 0.5rem;
@@ -30,17 +30,59 @@ section h2{
     cursor: pointer;
 }
 #search-button{
- color: orange;
- width:100%;
+ color:#FFC5A1;
+ background-color: #002855;
+ width: 30px;
+ border-radius: 0.5rem;
+ 
+}
+.meal-box{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    margin:1rem;
+}
+
+#meal{
+    background-color: antiquewhite;
+    border: 1rem solid rgb(207, 204, 204);
+    padding: 2rem;
+    align-items: center;
+    margin: 1rem;
+}
+#meal h2{
+    color: #002855;
+    padding: 0.5rem;
+    text-align: center;
+
+}
+#meal img{
+    margin:0.6rem;
+    height:auto;
+    border:1rem;
+    border-radius: 0.5rem;
+    max-width: 100%;
+    max-height: 100%;
+    
+
 }
 .recipe-button{
+    font-size: 1.2rem;
+    text-decoration: none;
+    color:#FFC5A1;
+    background-color: #002855;
+    border-radius:0.5rem;
+    padding:0.5rem;
+    margin:1rem;
+    align-items: center;
 
 }
-.meal{
-
+.recipe-button:hover{
+    color:#002855;
+    background-color: whitesmoke;
 }
-.meal.img h2{
-    color: orange;
-    padding: 0.5rem;
+#alert{
 
 }

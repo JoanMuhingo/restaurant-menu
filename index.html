@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Utamu Recipes</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
 
@@ -15,15 +16,14 @@
     </header>
     <div class ="search-box">
     <input type ="text" id= "search" class = "search" placeholder ="Enter Meal">
-    <button type = "submit" id="search-button" class ="search-button"></button>
+    <button type = "submit" id="search-button" class ="search-button"><i class="material-icons"></i></button>
     </div>
     <section>
         <div class ="meal" id = "meal">
         <h2 id ="meal-name">meal name</h2>
             <img  id ="meal-img" src="#" alt="#">
         </div>
-        <h2 class ="meal-name"></h2>
-        <a href ="#" id="recipe-button" class=" recipe-button" data id="1234"> Recipe</a>
+        <a href ="#" id="recipe-button" class=" recipe-button" data id="${meal.idMeal}"> Recipe</a>
         </div>
         <div id="alert" class="alert">
             <h2>Recipe:</h2>
