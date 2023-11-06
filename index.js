@@ -7,11 +7,11 @@ document.addEventListener('DOMContentLoaded',function(e){
                 const list=data.meals;
                 const html =list.map(meal =>{
                     return `
-                    <div class = " meal-img">
+                    <div class = " meal-box">
                     <h2>${meal.strMeal}</h2>    
-            <img  src="${meal.strMealThumb}" alt="#"> 
+            <img  src="${meal.strMealThumb}" alt="${meal.strMeal}"> 
         </div>
-        <a href ="#" class=" recipe-button"> Recipe</a>
+        <a href ="#" class="recipe-button" dataId="${meal.idMeal}"> Recipe</a>
                     `;
                 }).join('');
                 homepage.innerHTML = html;
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded',function(e){
             console.error("Error fetching data:", error);
         });
         
-})
+});
 
 const searchButton = document.getElementById('search-button');
 const mealList = document.getElementById('meal');
@@ -33,62 +33,60 @@ const mealList = document.getElementById('meal');
 searchButton.addEventListener('click', getMealList);
 
 function getMealList(){
-    let searchTextArea = document.getElementById('search').value.trim();
-    fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${searchTextArea}`)
-        .then(response => response.json())
-        .then(data => {
-
-            console.log(data);
-            let html= " " ;
-            if (data.meals){
-                data.meals.forEach(meal => {
-                    html += `
-                    <div class = " meal-img">
-                    <h2>${meal.strMeal}</h2>    
-            <img  src="${meal.strMealThumb}" alt="${meal.strMeal}"> 
-        </div>
-        <a href ="#" class="recipe-button" data id="${meal.idMeal}"}"> Recipe</a>
-                    
-                    `  
-               
-     }
-        );
-            }
-            else{
-                html =' oops we do not have that';
-            }
-            mealList.innerHTML = html;
-        })
-        .catch(error => {
-            console.error("Error fetching data:", error);
-        });
-};
- mealList.addEventListener('click',function (e){
-    e.preventDefault();
-    if(e.target.classList.contains('recipe-button')){
-        const mealId = e.target.getAttribute('data-id');
-        getRecipe(mealId);
-    }
-})
-function getRecipe(mealId) {
-    fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            if (data.meals && data.meals.length > 0) {
-                const meal = data.meals[0];
-                const recipe = meal.strInstructions;
-                displayRecipe(recipe);
-            } else {
-                console.error("Recipe not available for meal ID:", mealId);
-            }
-        })
-        .catch(error => {
-            console.error("Error fetching recipe data:", error);
-        });
-}
-
-function displayRecipe(recipe) {
+        let searchTextArea = document.getElementById('search').value.trim();
+        fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${searchTextArea}`)
+            .then(response => response.json())
+            .then(data => {
     
-    alert(recipe);
-}
+                console.log(data);
+                let html= " " ;
+                if (data.meals){
+                    data.meals.forEach(meal => {
+                        html += `
+                        <div class = " meal-box">
+                        <h2>${meal.strMeal}</h2>    
+                <img  src="${meal.strMealThumb}" alt="${meal.strMeal}"> 
+            </div>
+            <a href ="#" class="recipe-button" dataId="${meal.idMeal}"> Recipe</a>
+                        
+                        `  
+                   
+         }
+            );
+                }
+                else{
+                    html =' oops we do not have that';
+                }
+                mealList.innerHTML = html;
+            })
+            .catch(error => {
+                console.error("Error fetching data:", error);
+            });
+    };
+
+    mealList.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (e.target.classList.contains('recipe-button')) {
+            const mealId = e.target.getAttribute('dataId');
+            console.log(mealId);
+            fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
+                .then(response => response.json())
+                .then((data) => {
+                    console.log(data);
+                    if (data.meals && data.meals.length > 0) {
+                        const meal = data.meals[0];
+                        const recipe = meal.strInstructions;
+                        alert(`Recipe for ${meal.strMeal}:\n\n${recipe}`);
+                    } else {
+                        console.log("Meal data not found");
+                    }
+    
+                })
+                .catch(error => {
+                    console.error("Error fetching recipe data:", error);
+                });
+        }
+       
+        
+    });
+ 
