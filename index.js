@@ -34,7 +34,8 @@ searchButton.addEventListener('click', getMealList);
 
 function getMealList(){
         let searchTextArea = document.getElementById('search').value.trim();
-        fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${searchTextArea}`)
+        // 
+        fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchTextArea}`)
             .then(response => response.json())
             .then(data => {
     
