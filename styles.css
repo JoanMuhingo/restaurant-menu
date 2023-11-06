@@ -5,7 +5,7 @@ body{
 header h1{
     font-size: 2rem;
     color: #002855;
-    
+    text-align: center;
 
 }
 header p {
@@ -16,6 +16,7 @@ header p {
   margin:0.7rem;
   padding:0.5rem;
   text-align: center;
+  clip-path: polygon(100% 0, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%);
 }
 .search-box{
     border-radius: 0.5rem;
@@ -23,6 +24,7 @@ header p {
     display:flex;
     align-items: center;
     justify-content: center;
+    
 }
 #search{
     border-radius: 0.5rem;
@@ -38,12 +40,14 @@ header p {
 }
 .meal-box{
     display:flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    justify-content: space-between; 
     align-items: center;
     justify-content: center;
     margin:1rem;
-    border-radius: 0.5rem;
+    white-space: pre-line;
+    text-align: center;
 }
 
 #meal{
@@ -55,9 +59,14 @@ header p {
 }
 #meal h2{
     color: #002855;
+    background-color: whitesmoke;
     padding: 0.5rem;
     text-align: center;
-
+    border-radius: 0.5rem;
+}
+#meal h2:hover{
+    color:#FFC5A1;
+    background-color: #002855;
 }
 #meal img{
     margin:0.6rem;
@@ -70,6 +79,8 @@ header p {
 
 }
 .recipe-button{
+    display:block;
+    text-align:center;
     font-size: 1.2rem;
     text-decoration: none;
     color:#FFC5A1;
